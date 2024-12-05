@@ -22,16 +22,22 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
+                        } else {
+                            Rectangle().fill(Color.gray).cornerRadius(5)
+                                .frame(width: 50, height: 50)
                         }
                         VStack(alignment: .leading) {
                             Text("\(image.uploadStatus)")
                                 .font(.headline)
                             ProgressView(value: image.uploadProgress)
                                 .progressViewStyle(LinearProgressViewStyle())
-                                .padding()
                                 .animation(.easeInOut, value: image.uploadProgress)
+                            
                         }
+                        .padding(.horizontal, 10)
+                        
                     }
+                    .padding(10)
                 }
                 .navigationTitle("Captured Images")
 
